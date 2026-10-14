@@ -105,6 +105,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .quality-list{display:grid;grid-template-columns:1fr 1fr;gap:0 50px}.quality-item{border-top:1px solid var(--line);padding:28px 0 32px}.quality-item .kicker{color:var(--green);margin-bottom:14px}.quality-item h2{font-size:28px;margin-bottom:15px;overflow-wrap:anywhere}.quality-item p{color:var(--muted);font-size:16px}
 .values{list-style:none;padding:0;margin:24px 0 0}.values li{border-top:1px solid var(--line);padding:14px 0;font-weight:700;font-size:16px}
 .quality-item:last-child:nth-child(odd){grid-column:1/-1}
+.certificate-dialog{width:min(1100px,calc(100% - 24px));max-height:90svh;padding:0;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);overflow:auto;overscroll-behavior:contain}.certificate-dialog::backdrop{background:rgba(0,0,0,.7)}.certificate-toolbar{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--line)}.certificate-toolbar h2{font-size:18px;margin:0}.certificate-toolbar .button{min-height:44px;font-size:14px;padding:8px 14px;flex:none}.certificate-image{display:block;width:100%;height:auto;object-fit:contain}body:has(.certificate-dialog[open]){overflow:hidden}
 .growers-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;list-style:none;padding:0;margin:18px 0 22px}.growers-list li{border-top:1px solid var(--line);padding:10px 0;font-size:16px;line-height:1.5;font-weight:700;overflow-wrap:break-word}
 @media(max-width:640px){.growers-list{grid-template-columns:1fr}}
 .contact-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:72px;align-items:start}.contact-details{margin-top:28px}.contact-details dt{font-size:12px;color:var(--muted);margin-top:20px}.contact-details dd{font-size:18px;overflow-wrap:anywhere}.contact-details a{text-decoration:none}.contact-details a:hover{text-decoration:underline}.contact-details address{font-style:normal;font-size:16px;margin-top:8px}
@@ -121,29 +122,37 @@ footer{border-top:1px solid var(--line)}footer .wrap{display:flex;justify-conten
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media(max-width:640px){.hero{height:auto;min-height:440px}.hero .wrap{padding-block:24px}.hero .kicker{margin-bottom:14px}.hero .lead{margin-top:18px}.hero .actions{margin-top:22px}.hero .button.outline{min-height:30px;padding:4px 0;border:0;text-decoration:underline;text-underline-offset:5px}.hero .button.outline:hover{background:transparent}}
 
-.site-header{background:#191f1c;border-bottom:1px solid #354039;color:#fff}
+.site-header{background:#191f1c;border-bottom:1px solid #354039;color:#fff;position:relative;z-index:20}
 .site-header>.wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:88px;padding-block:12px}
 .brand{display:block;flex:none}.brand img{width:196px;height:56px;object-fit:contain}
 .site-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .site-nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;text-decoration:none;font-size:14px;line-height:1.4;color:#e9efe9;border-bottom:2px solid transparent}
 .site-nav a:hover{color:var(--yellow);border-bottom-color:#647166}
 .site-nav a[aria-current="page"]{color:var(--yellow);font-weight:700;border-bottom-color:var(--yellow)}
+.site-nav[hidden]{display:none}.menu-toggle{display:none;align-items:center;justify-content:center;width:46px;height:46px;flex:none;padding:0;border:1px solid #647166;border-radius:3px;background:transparent;color:#fff;cursor:pointer}.menu-toggle:hover{border-color:var(--yellow);color:var(--yellow)}.menu-icon{display:block;width:24px;height:24px}.menu-close-icon{display:none}.menu-toggle[aria-expanded="true"] .menu-open-icon{display:none}.menu-toggle[aria-expanded="true"] .menu-close-icon{display:block}
 .skip-link{position:absolute;top:8px;left:16px;padding:12px 18px;background:#fff;color:var(--ink);z-index:10;transform:translateY(-200%)}
 .skip-link:focus{transform:translateY(0)}
-@media(max-width:820px){.site-header>.wrap{flex-direction:column;align-items:stretch;gap:10px}.brand{align-self:flex-start}.brand img{width:176px;height:50px}.site-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 4px}.site-nav a{padding:10px 6px}}
+@media(max-width:820px){.site-header>.wrap{flex-wrap:wrap;gap:12px 16px;min-height:76px}.brand img{width:176px;height:50px}.site-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 4px;flex-basis:100%}.site-nav a{padding:10px 6px}.menu-ready .menu-toggle{display:flex}.menu-ready .site-nav:not([hidden]){position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:10px 22px 14px;background:#191f1c;border-block:1px solid #354039;box-shadow:0 12px 20px rgba(0,0,0,.16)}.menu-ready .site-nav a{justify-content:flex-start;min-height:46px;padding:12px 16px;border-bottom:0;border-left:3px solid transparent;font-size:15px}.menu-ready .site-nav a[aria-current="page"]{border-left-color:var(--yellow);background:#ffffff08}}
 @media(max-width:640px){.hero{min-height:360px}}
 
 </style>
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
-<header class="site-header"><div class="wrap"><a class="brand" href="index.html" aria-label="Tabasco Citrus Pack, inicio"><img src="assets/logo-tcp.png" alt="Tabasco Citrus Pack" width="1428" height="408"></a><nav class="site-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="empresa.html" aria-current="page">Empresa</a><a href="producto.html">Producto</a><a href="tecnologia.html">Tecnología</a><a href="calidad.html">Calidad</a><a href="contacto.html">Contacto</a></nav></div></header>
+<header class="site-header"><div class="wrap"><a class="brand" href="index.html" aria-label="Tabasco Citrus Pack, inicio"><img src="assets/logo-tcp.png" alt="Tabasco Citrus Pack" width="1428" height="408"></a><button class="menu-toggle" type="button" aria-label="Abrir menú" title="Abrir menú" aria-expanded="false" aria-controls="site-menu"><span class="menu-open-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon" aria-hidden="true" focusable="false">
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg></span><span class="menu-close-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon" aria-hidden="true" focusable="false">
+  <path d="M18 6 6 18" />
+  <path d="m6 6 12 12" />
+</svg></span></button><nav class="site-nav" id="site-menu" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="empresa.html" aria-current="page">Empresa</a><a href="producto.html">Producto</a><a href="tecnologia.html">Tecnología</a><a href="calidad.html">Certificaciones</a><a href="contacto.html">Contacto</a></nav></div></header>
 <main id="contenido">
-<section class="page-intro"><div class="wrap"><p class="kicker">Empresa</p><h1>Nuestra empresa</h1><p class="lead">Fundada en 1992, Tabasco Citrus Pack es una empresa mexicana dedicada al acopio, empaque y comercialización de limón persa, con instalaciones en Huimanguillo, Tabasco.</p></div></section>
+<section class="page-intro"><div class="wrap"><p class="kicker">Empresa</p><h1>Nuestra empresa</h1><p class="lead">Fundada en 1992, Tabasco Citrus Pack es una empresa 100% mexicana dedicada al acopio, empaque y comercialización de limón persa.</p></div></section>
 <div class="wrap"><figure class="photo wide"><img src="assets/plantainterior.jpg" alt="Interior de las instalaciones de TCP, con la línea de empaque en primer plano" fetchpriority="high" width="1600" height="1067"></figure></div>
-<section class="statement"><div class="wrap statement-grid"><div class="year">1992<small>Año de fundación</small></div><div class="copy"><h2>Desarrollo de la operación</h2><p>Desde sus primeras instalaciones, TCP ha ampliado su infraestructura e incorporado equipos para la selección y el empaque. La automatización forma parte de esa evolución empresarial.</p></div></div></section>
-<section class="band tint"><div class="wrap split reverse"><div class="copy"><p class="kicker">Suministro de fruta</p><h2>Huertas socias</h2><p>Recibimos fruta de las huertas de nuestros socios:</p><ul class="growers-list"><li>Agrícola San Pablo</li><li>Agrícola San Xavier</li><li>PROCISTE</li><li>Capricho</li></ul><p>También adquirimos limón persa de productores locales para su selección, preparación y empaque en nuestras instalaciones.</p></div><figure class="photo"><img src="assets/huertas.jpg" alt="Vista aérea de huertas en el material de TCP" loading="lazy" width="1600" height="900"></figure></div></section>
-<section class="band"><div class="wrap split"><div class="copy"><p class="kicker">Nuestro equipo</p><h2>Las personas detrás de la operación</h2><p>Nuestro equipo participa en la inspección de la fruta, la operación de la línea y la preparación de las cajas. La automatización se integra con ese trabajo y con procesos estandarizados para organizar las distintas etapas del empaque.</p></div><figure class="photo"><img src="assets/equipoempaque.jpg" alt="Integrantes del equipo trabajando junto a las salidas de empaque" loading="lazy" width="1600" height="1067"><figcaption>Trabajo del equipo en la zona de empaque.</figcaption></figure></div></section>
+<section class="statement"><div class="wrap statement-grid"><div class="year">1992<small>Año de fundación</small></div><div class="copy"><h2>Desarrollo de la operación</h2><p>Desde nuestros inicios, hemos ampliado nuestra infraestructura e incorporado tecnología de punta. La automatización de la selección y el empaque nos permite mejorar nuestros procesos y seguir evolucionando.</p></div></div></section>
+<section class="band tint"><div class="wrap split reverse"><div class="copy"><p class="kicker">Suministro de fruta</p><h2>Huertas socias</h2><p>Para mantener un suministro constante y atender las necesidades de nuestros clientes, recibimos fruta directamente de las huertas de nuestros socios:</p><ul class="growers-list"><li>Agrícola San Pablo</li><li>Agrícola San Xavier</li><li>PROCISTE</li><li>Capricho</li></ul><p>Además, complementamos nuestro abasto adquiriendo limón persa de productores locales para su selección, preparación y empaque bajo nuestros estándares.</p></div><figure class="photo"><img src="assets/huertas.jpg" alt="Vista aérea de huertas en el material de TCP" loading="lazy" width="1600" height="900"></figure></div></section>
+<section class="band"><div class="wrap split"><div class="copy"><p class="kicker">Nuestro equipo</p><h2>Las personas detrás de la operación</h2><p>El talento humano es clave en TCP. Nuestro equipo realiza la inspección de la fruta, opera la línea y prepara las cajas. Combinamos su experiencia con tecnología y procesos estandarizados para cuidar la calidad del producto y del empaque.</p></div><figure class="photo"><img src="assets/equipoempaque.jpg" alt="Integrantes del equipo trabajando junto a las salidas de empaque" loading="lazy" width="1600" height="1067"><figcaption>Trabajo del equipo en la zona de empaque.</figcaption></figure></div></section>
 <section class="closing"><div class="wrap"><div class="closing-copy"><h2>Contacto comercial</h2><p>Consulta disponibilidad y presentaciones con nuestro equipo.</p><address class="closing-contact"><a href="tel:4426338328">4426338328</a><a href="mailto:contacto@tabascocitruspack.com">contacto@tabascocitruspack.com</a></address></div><a class="button yellow" href="contacto.html">Consultar un pedido <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow" aria-hidden="true" focusable="false">
   <path d="M5 12h14" />
   <path d="m12 5 7 7-7 7" />
@@ -156,5 +165,45 @@ footer{border-top:1px solid var(--line)}footer .wrap{display:flex;justify-conten
 </svg> Volver a Inicio</a></div></div>
 <footer><div class="wrap"><span>Tabasco Citrus Pack, S.A. de C.V.</span><a href="https://www.tabascocitruspack.com/aviso_privacidad.html" target="_blank" rel="noopener">Aviso de privacidad</a></div></footer>
 
+<script>
+(function () {
+  'use strict';
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const button = header.querySelector('.menu-toggle');
+  const menu = header.querySelector('.site-nav');
+  if (!button || !menu) return;
+  const mobile = window.matchMedia('(max-width: 820px)');
+  let open = false;
+  function setOpen(value, restoreFocus) {
+    open = mobile.matches && value;
+    menu.hidden = mobile.matches && !open;
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Cerrar men\u00fa' : 'Abrir men\u00fa');
+    button.title = open ? 'Cerrar men\u00fa' : 'Abrir men\u00fa';
+    if (restoreFocus) button.focus();
+  }
+  header.classList.add('menu-ready');
+  setOpen(false);
+  button.addEventListener('click', function () { setOpen(!open); });
+  menu.addEventListener('click', function (event) {
+    if (event.target.closest('a')) setOpen(false);
+  });
+  document.addEventListener('pointerdown', function (event) {
+    if (open && !header.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener('focusin', function (event) {
+    if (open && !header.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (open && event.key === 'Escape') {
+      event.preventDefault();
+      setOpen(false, true);
+    }
+  });
+  mobile.addEventListener('change', function () { setOpen(false); });
+}());
+
+</script>
 </body>
 </html>
